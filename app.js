@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 3000
 
 const config = require('./config/database')
 
+
+
 mongoose.Promise = Promise
 mongoose.connect(config.database)
 .then(result => {
@@ -24,6 +26,10 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
+
+const scraper = require('./routes/scraper')
+
+app.use('/scrape', scraper)
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`)
