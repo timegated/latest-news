@@ -2,12 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const newsSchema = new Schema({
-    headline: {
+    title: {
         type: String,
         unique: true
     },
-    summary: String,
-    storyURL: String,
+    url: String,
+    image: String,
     saved: {
         type: Boolean,
         default: false
