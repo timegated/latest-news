@@ -1,4 +1,5 @@
 module.exports = {
-    News: require('./news'),
+    JS: require('./Javascript'),
+    Nodejs: require('./NodeJS'),
     Note: require('./note')
 }

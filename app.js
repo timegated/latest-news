@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static('public'))
 
 const scraper = require('./routes/scraper')
-const news = require('./routes/index')
+const content = require('./routes/index')
 
-app.use('/', news)
+app.use('/', content)
 app.use('/scrape', scraper)
 
 

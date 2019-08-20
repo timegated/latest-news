@@ -3,7 +3,7 @@ const router = express.Router()
 const db = require('../models')
 
 router.get('/', (req, res) => {
-    db.News.find({})
+    db.JS.find({tag: 'https://hackernoon.com/tagged/javascript'})
     .then(results => {
         res.render('index', {results})
     })

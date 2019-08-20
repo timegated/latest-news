@@ -1,9 +1,16 @@
+  {{> navbar/navbar-block}}
 <div class="container">
     <div class="row">
       <div class="one-half column">
-        <h4>My Creative Homework Assignment</h4>
-        <p>Information from my database will be displayed here somewhere</p>
-        <p>{{results}}</p>
+        <h4>Choose A Language</h4>
+        <ul>
+          <li>{{> buttons/js-block}}</li>
+          <li>{{> buttons/nodejs-block}}</li>
+          <li>{{> buttons/reactjs-block}}</li>
+        </ul>
+     
+        {{!-- <p>{{results}}</p> --}}
+        
       </div>
     </div>
   </div>
