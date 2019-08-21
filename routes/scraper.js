@@ -22,7 +22,7 @@ router.get('/javascript', (req, res) => {
             console.log(result.image)
             // console.log(result)
             db.JS.create(result).then((dbInfo) => {
-                
+                console.log(dbInfo)
             }).catch((err) => {
                 console.log(err)
             })
