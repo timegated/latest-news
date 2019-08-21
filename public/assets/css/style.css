@@ -1,7 +1,15 @@
 
 h4 {
     color: Orange;
+    text-align: center;
 }
-.buttons li {
-    display:inline;
+
+ul li {
+    list-style: none;
+    display: inline;
+}
+
+#scrapeNewArticles {
+    display: block;
+    margin: 10px auto;
 }

@@ -31,3 +31,7 @@ document.getElementById('javascript').addEventListener('click', function(event) 
     //     }
     // })
 }, false)
+
+document.getElementById('scrapeNewArticles').addEventListener('click', () => {
+    console.log('get new articles was clicked')
+})

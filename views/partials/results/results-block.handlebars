@@ -1,11 +1,12 @@
-{{#each javascript}}
-    <div class="toggle">
+ {{#each results}}
+    
     <ul>
         <li>{{title}}</li>
         <li><a href="https://hackernoon.com{{url}}">Link</a></li>
         <li><a href="{{tag}}">Tag</a></li>
-        <li><div style="{{image}}" alt=""></div></li>
+        <li><img src="" alt=""></li>
         <button id="makeNote">Add Note</button>
+        <button id="save">Save</button>
     </ul>
-    </div>
+    
     {{/each}}

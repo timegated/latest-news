@@ -16,12 +16,13 @@ router.get('/javascript', (req, res) => {
 
             result.title = $(element).find('.title').text().trim()
             result.url = $(element).find('.title').children('a').attr('href')
-            result.tag = $(element).find('.tag').attr('href')
-            result.image = $(element).find('div').children('a').children('.img').attr('style')
-            
+            result.tag = $(element).find('div').children('.tag').attr('href')
+            let imageCSS = $(element).find('div').children('a').children('.img').css('background-image')
+            result.image = imageCSS.replace(/(url\(|\)|')/g, '')
+            console.log(result.image)
             // console.log(result)
             db.JS.create(result).then((dbInfo) => {
-                console.log(dbInfo)
+                
             }).catch((err) => {
                 console.log(err)
             })
@@ -30,26 +31,5 @@ router.get('/javascript', (req, res) => {
     
     })
 })
-router.get('/nodejs', (req, res) => {
-    axios.get("https://hackernoon.com/tagged/nodejs").then((response) => {
-        const $ = cheerio.load(response.data)
- 
-        $('.story-card').each((index, element) => {
-             let result = {}
- 
-             result.title = $(element).find('.title').text().trim()
-             result.url = $(element).find('.title').children('a').attr('href')
-             result.tag = $(element).find('.tag').attr('href')
-             result.image = $(element).find('div').children('a').children('.img').attr('style')
-             
-             // console.log(result)
-             db.Nodejs.create(result).then((dbInfo) => {
-                
-             }).catch((err) => {
-                 
-             })
-             
-         })
-    })
-})
+
 module.exports = router;
