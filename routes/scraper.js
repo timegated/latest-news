@@ -44,9 +44,9 @@ router.get('/nodejs', (req, res) => {
              
              // console.log(result)
              db.Nodejs.create(result).then((dbInfo) => {
-                 console.log(dbInfo)
+                
              }).catch((err) => {
-                 console.log(err)
+                 
              })
              
          })
