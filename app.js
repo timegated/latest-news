@@ -13,10 +13,10 @@ const config = require('./config/database')
 mongoose.Promise = Promise
 mongoose.connect(config.database)
 .then(result => {
-    // console.log(`Connected to database '${result.connections[0].name}' on ${result.connections[0].host}:${result.connections[0].port}`)
+    console.log(`Connected to database '${result.connections[0].name}' on ${result.connections[0].host}:${result.connections[0].port}`)
 })
 .catch(err => {
-    // console.log(err)
+    console.log(err)
 })
 
 app.use(bodyParser.json())
@@ -37,5 +37,5 @@ app.use('/scrape', scraper)
 app.use('/articles/put/', saveArticle)
 
 app.listen(PORT, () => {
-    // console.log(`Listening on ${PORT}`)
+    console.log(`Listening on ${PORT}`)
 })

@@ -30,7 +30,7 @@ router.put('/articles/put/:id', (req, res) => {
     db.JS.updateOne({ _id: (req.params.id) }, {$set: { saved: true } }, (err, article) => {
         if(err) throw new Error
     }).then(results => {
-        // console.log(results)
+        console.log(results)
     })
 })
 

@@ -1,12 +1,15 @@
  {{#each results}}
     {{#unless saved}}
-    <ul>
-        <li>{{title}}</li>
-        <li><a href="https://hackernoon.com{{url}}">Link</a></li>
-        <li><a href="{{tag}}">Tag</a></li>
-        <li><img style="width:150px; height: 150px; background: orange;" src="" alt=""></li>
-        <button id="saveThis" data-id="{{_id}}" class="save">Save</button>
+    <ul class="collection">
+        <li class="collection-item">{{title}}</li>
+        <li class="collection-item"><a href="https://hackernoon.com{{url}}">Link</a></li>
+        <li class="collection-item"><a href="{{tag}}">Tag</a></li>
+        <li class="collection-item"><img style="width:150px; height: 150px; background: orange;" src="https://hackernoon.com{{image}}" alt=""></li>
+        <button class="btn btn-float blue lighten-4 black-text" id="saveThis" data-id="{{_id}}" class="save">Save</button>
         </ul> 
-        {{/unless}}  
+    {{/unless}}  
+{{/each}}
     
-    {{/each}}
+    
+    
+    
