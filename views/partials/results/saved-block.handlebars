@@ -1,12 +1,13 @@
- {{#each results}}
-    {{#unless saved}}
-    <ul>
+
+{{#each results}}
+    {{#if saved}}
+     <ul>
         <li>{{title}}</li>
         <li><a href="https://hackernoon.com{{url}}">Link</a></li>
         <li><a href="{{tag}}">Tag</a></li>
         <li><img style="width:150px; height: 150px; background: orange;" src="" alt=""></li>
-        <button id="saveThis" data-id="{{_id}}" class="save">Save</button>
+        <button id="leaveNote" data-id="{{_id}}" class="makeNote">Add Note</button>
+        
         </ul> 
-        {{/unless}}  
-    
-    {{/each}}
+        {{/if}}
+{{/each}}

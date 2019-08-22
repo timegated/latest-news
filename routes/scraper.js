@@ -5,7 +5,7 @@ const axios = require('axios')
 const router = express.Router()
 const db = require('../models')
 const fs = require('fs')
-console.log(db)
+// console.log(db)
 //Setting up scraper
 router.get('/javascript', (req, res) => {
    axios.get("https://hackernoon.com/tagged/javascript").then((response) => {
@@ -19,12 +19,12 @@ router.get('/javascript', (req, res) => {
             result.tag = $(element).find('div').children('.tag').attr('href')
             let imageCSS = $(element).find('div').children('a').children('.img').css('background-image')
             result.image = imageCSS.replace(/(url\(|\)|')/g, '')
-            console.log(result.image)
-            // console.log(result)
+            
+            // // console.log(result)
             db.JS.create(result).then((dbInfo) => {
-                console.log(dbInfo)
+                res.send('sent')
             }).catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
             
         })
