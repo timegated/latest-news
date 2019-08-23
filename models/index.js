@@ -1,4 +1,4 @@
 module.exports = {
     JS: require('./Javascript'),
-    Note: require('./note')
+    Note: require('./Note')
 }
