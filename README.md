@@ -9,4 +9,6 @@
 </ul>
 <hr>
 
+Deployed version: https://fierce-dawn-22951.herokuapp.com
+
 <p>An app that pulls javascript articles from www.hackernoon.com and displays the tags/links/ and photos.</p>
