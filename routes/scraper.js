@@ -19,12 +19,16 @@ router.get('/javascript', (req, res) => {
             result.tag = $(element).find('div').children('.tag').attr('href')
             let imageCSS = $(element).find('div').children('a').children('.img').css('background-image')
             result.image = imageCSS.replace(/(url\(|\)|')/g, '')
+
+            if(result.image.indexOf('https://') === -1) {
+                result.image = 'https://hackernoon.com' + result.image
+            }
             
-            // console.log(result)
+            // console.log(result.image)
             db.JS.create(result).then((dbInfo) => {
                 res.send('sent')
             }).catch((err) => {
-                console.log(err)
+                // console.log(err)
             })
             
         })

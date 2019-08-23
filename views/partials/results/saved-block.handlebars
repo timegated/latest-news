@@ -1,13 +1,17 @@
 
 {{#each results}}
     {{#if saved}}
-     <ul>
-        <li>{{title}}</li>
-        <li><a href="https://hackernoon.com{{url}}">Link</a></li>
-        <li><a href="{{tag}}">Tag</a></li>
-        <li><img style="width:150px; height: 150px; background: orange;" src="" alt=""></li>
-        <button id="leaveNote" data-id="{{_id}}" class="makeNote">Add Note</button>
+    
+        <ul class="collection">
+        <li class="collection-item">{{title}}</li>
+        <li class="collection-item"><a href="https://hackernoon.com{{url}}">Link</a></li>
+        <li class="collection-item"><a href="{{tag}}">Tag</a></li>
+        <li class="collection-item"><img style="width:150px; height: 150px; background: orange;" src="{{image}}" alt=""></li>
         
+        <a class="waves-effect waves-light btn modal-trigger makeNote blue lighten-2" data-id="{{_id}}" href="#modal1">Add Note</a>
         </ul> 
+        
+        
+       
         {{/if}}
 {{/each}}

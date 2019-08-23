@@ -7,11 +7,11 @@ const db = require('../models')
 router.get('/', (req, res) => {
     db.JS.find({ tag: 'https://hackernoon.com/tagged/javascript' })
     .then(results => {
-        console.log(`i've been hit`)
+        // console.log(`i've been hit`)
         res.render('index', { results })
     })
     .catch(err => {
-        res.json(err)
+        // res.json(err)
     })
    
 })
