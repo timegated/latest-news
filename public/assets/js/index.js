@@ -46,7 +46,7 @@ const saveArticle = () => {
                 
                 location.reload()
             } else {
-               
+               console.log(err)
             }
             })
         })
@@ -67,18 +67,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Fetch post method here
 
-const createNote = () => {
-    const notes = document.getElementsByClassName('makeNote')
+// const createNote = () => {
+//     const notes = document.getElementsByClassName('makeNote')
     
-    Array.from(notes).forEach(note => {
-        note.addEventListener('click', () => {
-            console.log
+//     Array.from(notes).forEach(note => {
+//         note.addEventListener('click', () => {
+//             console.log(note)
+//             let title = document.getElementsByClassName('title')
+//             console.log(title)
           
 
        
-    })
-})
+//     })
+// })
 
+// }
+
+const saveNoteEvent = () => {
+    document.getElementById('saveNoteEvent').addEventListener('click', () => {
+        console.log('add happened')
+        let title = document.querySelector('#title').value
+        let body = document.querySelector('#body').value
+        console.log(title)
+        console.log(body)
+
+        fetch('/note', {
+            method: 'POST',
+        }).then(result => {
+            console.log(result)
+        }).catch(err => console.log(err))
+    })
 }
 
-createNote()
+
+saveNoteEvent()
