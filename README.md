@@ -8,3 +8,5 @@
 <li>Cheerio</li>
 </ul>
 <hr>
+
+<p>An app that pulls javascript articles from www.hackernoon.com and displays the tags/links/ and photos.</p>
