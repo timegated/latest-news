@@ -10,6 +10,7 @@ const getArticles = () => {
                 'Content-Type':'application/json'
             }
         }).then(response => {
+            console.log(response)
             if(response) {
                 console.log('data-sent')
                 window.location.href = '/'
@@ -22,7 +23,7 @@ const getArticles = () => {
     
     })
 }
-// getArticles()
+getArticles()
 
 //Update Request
 //Creating an array with all objects with class name Save, adding an event listener to each ID
