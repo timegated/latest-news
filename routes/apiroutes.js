@@ -44,9 +44,14 @@ router.post('/note', (req, res) => {
    db.Note.create(note)
    .then(results => {
        db.JS.findOneAndUpdate({_id: articleId}, {$push:{notes: results._id}}, {new: true})
-        .then( data => res.json(result))
+        .then( data => res.json(data))
         .catch(err => res.json(err))
+        console.log(results)
    })
+})
+
+router.get('/note', (req, res) => {
+    
 })
 
 module.exports = router
