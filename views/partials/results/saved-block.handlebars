@@ -7,6 +7,12 @@
     <li class="collection-item"><a href="https://hackernoon.com{{url}}">Link</a></li>
     <li class="collection-item"><a href="{{tag}}">See More JS Articles</a></li>
     <li class="collection-item"><img style="width:150px; height: 150px; background: orange;" src="{{image}}" alt=""></li>
+    {{log notes}}
+    {{#each notes as | note |}}
+    {{log note}}
+    <li class="collection-item"><p>Title: {{note.title}}</p></li>
+    <li class="collection-item"><p>Body: {{note.body}}</p></li>
+    {{/each}}
     <a class="waves-effect waves-light btn modal-trigger makeNote blue lighten-2" data-id="{{_id}}" href="#modal1">Add Note</a>
     </ul> 
         

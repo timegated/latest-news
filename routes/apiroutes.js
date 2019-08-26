@@ -7,7 +7,7 @@ const db = require('../models')
 router.get('/', (req, res) => {
     db.JS.find({ tag: 'https://hackernoon.com/tagged/javascript' })
     .then(results => {
-        // console.log(`i've been hit`)
+        console.log(results)
         res.render('index', { results })
     })
     .catch(err => {
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 //Getting saved articles
 
 router.get('/saved', (req, res) => {
-    db.JS.find({saved: true})
+    db.JS.find({saved: true}).populate('notes')
     .then(results => {
         res.render('savedarticle', { results })
     })
@@ -36,22 +36,19 @@ router.put('/articles/put/:id', (req, res) => {
 
 //Notes
 router.post('/note', (req, res) => {
-   const {title, body, articleId} = req.body;
-   const note = {
-       title,
-       body
-   }
-   db.Note.create(note)
-   .then(results => {
-       db.JS.findOneAndUpdate({_id: articleId}, {$push:{notes: results._id}}, {new: true})
-        .then( data => res.json(data))
-        .catch(err => res.json(err))
-        console.log(results)
+    const articleId = req.body._id
+    const title = req.body.title
+    const body = req.body.body
+   
+   db.Note.updateOne({_id: articleId}, {title: title, body: body}, {upsert: true})
+   .then(result => {
+        return db.JS.updateOne({_id: articleId}, {notes: articleId}, {new: true})
    })
+   .then(data => {
+       console.log(data)
+   })
+   .catch(err => console.log(err))
 })
 
-router.get('/note', (req, res) => {
-    
-})
 
 module.exports = router

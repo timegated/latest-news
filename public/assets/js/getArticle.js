@@ -13,7 +13,7 @@ const getArticles = () => {
             console.log(response)
             if(response) {
                 console.log('data-sent')
-                window.location.href = '/'
+                // window.location.href = '/'
                 
                 
             } else {

@@ -11,9 +11,10 @@ const createNote = () => {
     const notes = document.getElementsByClassName('makeNote')
     
     Array.from(notes).forEach(note => {
-        note.addEventListener('click', () => {
+        note.addEventListener('click', (e) => {
             console.log(note)
-          
+            console.log(e.currentTarget.getAttribute('data-id'))
+            saveNoteEvent(e.currentTarget.getAttribute('data-id'))
           
 
        
@@ -22,16 +23,25 @@ const createNote = () => {
 
 }
 
-const saveNoteEvent = () => {
-    document.getElementById('saveNoteEvent').addEventListener('click', () => {
+const saveNoteEvent = (id) => {
+    document.getElementById('saveNoteEvent').addEventListener('click', (e) => {
         console.log('add happened')
-        let title = document.querySelector('#title').value
-        let body = document.querySelector('#body').value
-        console.log(title)
-        console.log(body)
+
+       
+        const note = {
+            _id: id,
+            title: document.querySelector('#title').value,
+            body: document.querySelector('#body').value
+        }
+      
+        console.log(note._id)
 
         fetch('/note', {
             method: 'POST',
+            body:JSON.stringify(note),
+            headers: {
+                'Content-Type' : 'application/json'
+            }
         }).then(result => {
             console.log(result)
         }).catch(err => console.log(err))
@@ -39,4 +49,3 @@ const saveNoteEvent = () => {
 }
 
 createNote()
-saveNoteEvent()
